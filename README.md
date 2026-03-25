@@ -121,6 +121,30 @@ The app uses **SQLite** via `better-sqlite3` — a single `data.db` file in the 
 - **Export/Import** — JSON backup and restore
 - **Dark mode** by default (developer-friendly)
 
+## Deploy to Render (Free Hosting)
+
+This app is configured for one-click deployment on [Render](https://render.com) with a persistent disk for SQLite.
+
+See **[DEPLOY.md](./DEPLOY.md)** for the full step-by-step guide.
+
+**Quick summary:**
+1. Push code to a GitHub repo
+2. On Render → New → Blueprint → connect your repo
+3. Render reads `render.yaml` and auto-configures everything
+4. Your app goes live at `https://dsa-tracker-xxxx.onrender.com`
+
+**What's included:**
+- `render.yaml` — Blueprint config (free plan, persistent disk, env vars)
+- `render-build` script — builds frontend + pushes DB schema
+- `DB_PATH` env var support — SQLite writes to persistent disk on Render, falls back to `./data.db` locally
+
+**Free tier notes:**
+- Sleeps after 15 min inactivity (~30s cold start on wake)
+- Data persists across redeploys and sleep/wake cycles
+- Auto-deploys on every `git push` to `main`
+
+---
+
 ## Troubleshooting
 
 **`better-sqlite3` won't install:**
