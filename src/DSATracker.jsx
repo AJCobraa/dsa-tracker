@@ -580,7 +580,7 @@ export default function App() {
               ⚡ DSA TRACKER
             </div>
             <div style={{fontSize:11,color:"#374151",marginTop:3,letterSpacing:".04em"}}>
-              NEETCODE 250 — PATTERN MASTERY
+              DSA — PATTERN MASTERY by- Anupam Jose
             </div>
           </div>
           {total>0&&(
